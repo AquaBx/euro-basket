@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+#mapid { 
+	height: 100%; 
+}
+
+html, body {
+	height: 100%;
+	width:100%;
+	margin: 0;
+	display:flex;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+#mapid { 
+	flex:1;
+}
+
+.info {
+	padding: 6px 8px;
+	font: 26px Arial, Helvetica, sans-serif;
+	background: white;
+	background: rgba(255,255,255,0.8);
+	box-shadow: 0 0 15px rgba(0,0,0,0.2);
+	border-radius: 5px;
+}
+	
+.info h4 { 
+	margin: 0 0 5px;
+	color: #777; 
+}
+	
+.legend {
+	text-align: left;
+	line-height: 18px;
+	color: #555; 
+} 
+	
+.legend i { 
+	width: 18px;
+	height: 18px;
+	float: left;
+	margin-right: 8px;
+	opacity: 0.7; 
+}
+
+#table_selected{
+	overflow: auto;
+    height: calc(100% - 36px);
+    display: block;
+	text-align: center;
+	border-spacing: 0;
+}
+
+#bar>a{
+	padding:2px;
+	border: 2px solid rgb(0,0,0,0.2);
+	background: rgb(255,255,255);
+	border-radius:5px;
+    display:inline-block;
+    transition:0.3s;
+}
+#bar>a:hover{
+	background: rgb(100,255,100);
+}
+
+thead td > input[type=text] {
+	width: 150px;
+    height: calc(100% - 5px);
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#table_selected td {
+	border: 1px solid grey;
+	padding : 5px
+}
+
+.leaflet-top.leaflet-right .leaflet-control-layers:nth-child(2) .leaflet-control-layers-toggle {
+    background-image: url("https://fonts.gstatic.com/s/i/materialiconsoutlined/layers/v12/24px.svg");
+}
+
+
+.leaflet-top.leaflet-right .leaflet-control-layers:nth-child(3) .leaflet-control-layers-toggle {
+    background-image: url("https://fonts.gstatic.com/s/i/materialiconsoutlined/place/v17/24px.svg");
+}
+
+@media print{
+	.leaflet-control-layers, .leaflet-control-zoom {
+		display:none;
+	}
+}
