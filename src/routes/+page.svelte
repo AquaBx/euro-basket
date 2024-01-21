@@ -1,9 +1,4 @@
 <script lang="ts">
-    import 'leaflet/dist/leaflet.css'
-    // import "$lib/css.css"
-    // import 'leaflet.browser.print'
-    
-
     import {Polygon,Point, Secteur} from "$lib/polygon"
     import {secteurs} from "$lib/secteur"
     import {secteurSelected} from "$lib/store"
@@ -13,30 +8,12 @@
     let mymap:any
 
     onMount(async ()=>{
-        let L = await import('leaflet');
-        await import ('leaflet.browser.print/dist/leaflet.browser.print.min.js');
 
-
-        /* --------------- Variables Globales --------------- */
-
-        // var modified = {}
-        // var points_selected = []
-        // var tool = ""
-        // var len = 0
-        // var params = new URLSearchParams(document.location.search);
         var corner1 = L.latLng(48.205685, -1.936169)
         var corner2 = L.latLng(48.101126, -1.607609)
         var bounds = L.latLngBounds(corner1, corner2);
 
-        // if (params.get("edit") == "1"){
-        //     document.querySelector("#bar").style.display = "block"
-        // }
-
-        /* --------------- Leaflet Paramètres --------------- */
-
-
         mymap = L.map(map, {
-            editable: true,
             center: [48.146961, -1.772747],
             zoom: 13,
             maxBounds:bounds,
@@ -57,9 +34,7 @@
             for (let couple of secteurs[i]){
                 liste.push(new Point(L,couple.at(0)!,couple.at(1)!))
             }
-
             secteursPoly.push(new Secteur(parseInt(i),new Polygon(L,liste)))
-
         }
 
         let resp = await fetch("https://bano.openstreetmap.fr/data/bano-35.csv")
@@ -96,6 +71,10 @@
 <div bind:this={map} style="height:100dvh;width:100dvw" />
 
 <svelte:head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="./leaflet.browser.print.min.js"></script>
+    
     <style>
         body{margin:0}
         @media print{
