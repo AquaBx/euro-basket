@@ -1,7 +1,8 @@
-import { Point, Polygon, Secteur } from "$lib/polygon"
+import { Point, Polygon, Secteur } from "$lib/polygon.svelte"
 import { secteurs } from "$lib/secteur"
+import type { PageServerLoad } from './$types';
 
-export async function load({ params, fetch }) {
+export const load: PageServerLoad = async function({ fetch }) {
     let resp = await fetch("https://bano.openstreetmap.fr/data/bano-35.csv")
     let text = await resp.text()
 
@@ -30,3 +31,4 @@ export async function load({ params, fetch }) {
 
     return { secteurs : secteursPoly }
 }
+

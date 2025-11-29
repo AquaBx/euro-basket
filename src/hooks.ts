@@ -1,4 +1,4 @@
-import { Point, Polygon, Secteur } from '$lib/polygon';
+import { Point, Polygon, Secteur } from '$lib/polygon.svelte';
 import type { Transport } from '@sveltejs/kit';
 
 export const transport: Transport = {

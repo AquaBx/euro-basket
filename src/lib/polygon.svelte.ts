@@ -1,5 +1,5 @@
 import type { Feature } from "maplibre-gl"
-import { secteurSelected } from "./store"
+import { Settings } from "./store.svelte"
 import { secteurs } from "./secteur"
 import maplibregl from "maplibre-gl"
 
@@ -52,7 +52,7 @@ export class Secteur {
         
         let thisSecteur = this
         map.on('click', `secteur-${this.id}-fill`, (e) => {
-            secteurSelected.set(thisSecteur)
+            Settings.secteur = thisSecteur
             const bounds = thisSecteur.polygon.bounds
             map.fitBounds(bounds, {
                     padding: 20
