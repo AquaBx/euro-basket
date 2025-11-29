@@ -1,5 +1,5 @@
-import type { Secteur } from "./polygon.svelte";
-
-export class Settings {
-    secteur : Secteur | undefined = $state()
+class Settings {
+    secteurID : number|undefined = $state()
 } 
+
+export const settings = new Settings()

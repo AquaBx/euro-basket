@@ -1,6 +1,6 @@
 <script lang="ts">
     import {Secteur} from "$lib/polygon.svelte"
-    import {Settings} from "$lib/store.svelte"
+    import {settings} from "$lib/store.svelte"
     import { onMount } from 'svelte';
     import maplibregl from 'maplibre-gl';
     import 'maplibre-gl/dist/maplibre-gl.css';
@@ -27,10 +27,11 @@
 
 </script>
 
-{#if Settings.secteur}
+{#if settings.secteurID}
+
     <div class="bg-white/80 shadow-2xl rounded-2xl absolute top-2 right-2 p-2 z-50">
-        <h4 class="text-3xl text-slate-800">Secteur {Settings.secteur.id+1}</h4>
-        <div>{Settings.secteur.points.length} habitants</div>
+        <h4 class="text-3xl text-slate-800">Secteur {settings.secteurID}</h4>
+        <div>{data.secteurs[settings.secteurID].points.length} habitants</div>
     </div>
 {/if}
 
