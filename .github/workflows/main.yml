@@ -17,12 +17,17 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v3
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
       -
         name: Install Depedencies
-        run: npm install
+        run: bun install
       -
         name: Build App
-        run: npm run build
+        run: bun run build
       
       - name: Setup Pages
         uses: actions/configure-pages@v2
